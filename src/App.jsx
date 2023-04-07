@@ -2,6 +2,9 @@
 
 import './App.css'
 import Numpad from './components/Numpad'
+import Operations from './components/Operations'
+import CalcDisplay from './components/CalcDisplay'
+import CalcButton from "./components/Button"
 
 function App() {
 
@@ -10,7 +13,14 @@ function App() {
   return(
     <div className="container">
 
-      <Numpad></Numpad>
+      <CalcDisplay></CalcDisplay>
+      
+      <Operations></Operations>
+
+      <div className='container'>
+        <Numpad></Numpad>
+        <CalcButton btnType={"operation"} content={"="}></CalcButton>
+      </div>
 
     </div>
   )
