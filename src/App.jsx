@@ -10,26 +10,27 @@ function App() {
 
   let [valueOne, setValueOne] = useState("");
   let [valueTwo, setValueTwo] = useState("");
-  let currOp, finalVal;
+  let currOp, calculate;
 
-  function getCurrentOperation(op){
+  function setOperationType(op){
     currOp = op;
     return currOp;
   }
 
-  function handleOperation(opType){
+  function handleOperation(){
 
-    getCurrentOperation(opType)
+    calculate = currOp();
 
     if(valueTwo === ""){
       setValueTwo(valueTwo = valueOne);
       setValueOne(valueOne = "")
     } else {
-      setValueTwo(valueTwo = currOp(parseInt(valueTwo), parseInt(valueOne)));
+      setValueTwo(valueTwo = calculate(parseInt(valueTwo), parseInt(valueOne)));
       setValueOne(valueOne = "");
     }
 
     console.log(`value one is ${valueOne} and value two is ${valueTwo}`);
+    return valueTwo;
   }
 
   // function handleOperation(opType){
@@ -53,21 +54,21 @@ function App() {
   //   }
   // }
 
-  function calculateOperation(){
-    getCurrentOperation()
-    console.log(currOp(1, 2))
-  }
+  // function calculateOperation(){
+  //   console.log(currOp)
+  //   // console.log(currOp(1, 2))
+  // }
 
   return(
     <div className="container">
 
       <CalcDisplay equation = {valueOne}></CalcDisplay>
 
-      <Operations handleOperation={handleOperation}></Operations>
+      <Operations handleOperation={handleOperation} setOperationType={setOperationType}></Operations>
 
       <div className='container'>
-        <Numpad setValueOne = {setValueOne} valueOne = {valueOne} onclick={console.log(currOp)}/>
-        <CalcButton btnType={"operation"} content={"="} onclick={calculateOperation}></CalcButton>
+        <Numpad setValueOne = {setValueOne} valueOne = {valueOne}/>
+        <CalcButton btnType={"operation"} content={"="} onclick={handleOperation}></CalcButton>
       </div>
 
     </div>

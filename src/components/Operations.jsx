@@ -1,6 +1,6 @@
 import CalcButton from "./Button"
 
-const Operations = ({handleOperation}) => {
+const Operations = ({handleOperation, setOperationType}) => {
 
     const ops = [
         {op: "+",
@@ -28,7 +28,12 @@ const Operations = ({handleOperation}) => {
     return ( 
         <div className="container">
             {ops.map((ops) => (
-                <CalcButton content={ops.op} key={ops.op} btnType={"operation"} onclick={() => handleOperation(ops.method)}/>
+                <CalcButton content={ops.op} key={ops.op} btnType={"operation"} 
+                    onclick={function(){ 
+                        setOperationType(ops.method);
+                        handleOperation();
+                    }
+                }/>
             ))}
         </div>
      );
