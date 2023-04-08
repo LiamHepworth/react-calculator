@@ -1,12 +1,35 @@
 import CalcButton from "./Button"
 
-const Operations = () => {
+const Operations = ({handleOperation}) => {
+
+    const ops = [
+        {op: "+",
+         method: function addition(a, b){
+            return a + b;
+         }       
+        },
+        {op: "-",
+         method: function subtraction(a, b){
+            return a - b;
+         }       
+        },
+        {op: "*",
+         method: function multiplication(a, b){
+            return a * b;
+         }       
+        },
+        {op: "/",
+         method: function division(a, b){
+            return a / b;
+         }       
+        },
+    ]
+
     return ( 
         <div className="container">
-            <CalcButton btnType={"operation"} content={"+"}></CalcButton>
-            <CalcButton btnType={"operation"} content={"-"}></CalcButton>
-            <CalcButton btnType={"operation"} content={"*"}></CalcButton>
-            <CalcButton btnType={"operation"} content={"/"}></CalcButton>
+            {ops.map((ops) => (
+                <CalcButton content={ops.op} key={ops.op} btnType={"operation"} onclick={() => handleOperation(ops.method)}/>
+            ))}
         </div>
      );
 }

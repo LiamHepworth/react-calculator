@@ -9,13 +9,27 @@ import CalcButton from "./components/Button"
 function App() {
 
   let [currValue, setCurrValue] = useState("");
+  let [currOp, setCurrOp] = useState();
+  let [firstValue, setFirstValue] = useState("");
+  let [secondValue, setsecondValue] = useState("");
+
+  function handleOperation(opType){
+
+    console.log(opType)
+
+    // if(firstValue === "" || firstValue === undefined){
+    //   setFirstValue(currValue);
+    // } else {
+    //   setsecondValue(currValue);
+    // }
+  }
 
   return(
     <div className="container">
 
       <CalcDisplay equation = {currValue}></CalcDisplay>
 
-      <Operations></Operations>
+      <Operations handleOperation={handleOperation}></Operations>
 
       <div className='container'>
         <Numpad setCurrValue = {setCurrValue} currValue = {currValue} onClick = {console.log(currValue)} />
