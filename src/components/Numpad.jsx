@@ -8,10 +8,10 @@ const numpadButtons = [
   ["0", ".", "C"],
 ]
 
-const Numpad = ({setCurrValue, currValue}) => {
+const Numpad = ({setValueOne, valueOne}) => {
 
   function handleClick(char){
-    setCurrValue(currValue += char)
+    setValueOne(valueOne += char)
   }
 
   return (
