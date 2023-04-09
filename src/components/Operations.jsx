@@ -30,8 +30,8 @@ const Operations = ({handleOperation, setOperationType}) => {
             {ops.map((ops) => (
                 <CalcButton content={ops.op} key={ops.op} btnType={"operation"} 
                     onclick={function(){ 
-                        setOperationType(ops.method);
                         handleOperation();
+                        setOperationType(ops.method);
                     }
                 }/>
             ))}
