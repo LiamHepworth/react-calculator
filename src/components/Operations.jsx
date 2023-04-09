@@ -1,6 +1,6 @@
 import CalcButton from "./Button"
 
-const Operations = ({handleOperation, setOperationType}) => {
+const Operations = ({handleOperation, setOperationType, drawEquation}) => {
 
     const ops = [
         {op: "+",
@@ -32,6 +32,7 @@ const Operations = ({handleOperation, setOperationType}) => {
                     onclick={function(){ 
                         handleOperation();
                         setOperationType(ops.method);
+                        drawEquation(` ${ops.op} `)
                     }
                 }/>
             ))}

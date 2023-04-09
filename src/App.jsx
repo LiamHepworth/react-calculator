@@ -12,7 +12,8 @@ function App() {
 
   let [valueOne, setValueOne] = useState("");
   let [valueTwo, setValueTwo] = useState("");
-  let [calcValue, setCalcValue] = useState("");  //to allow the user to continue after clicking equals?
+  let [calcValue, setCalcValue] = useState("");  //to allow the user to continue after clicking equals;
+  let [equation, setEquation] = useState("")
 
   function setOperationType(op){
     currOp = op;
@@ -25,7 +26,7 @@ function App() {
         setValueTwo(valueTwo = valueOne);
         setValueOne(valueOne = "");
       } else {
-        setValueTwo(valueTwo = currOp(parseInt(valueTwo), parseInt(valueOne)));
+        setValueTwo(valueTwo = currOp(parseFloat(valueTwo), parseFloat(valueOne)));
         setCalcValue(calcValue = valueTwo);
         setValueOne(valueOne = "");
       }
@@ -38,15 +39,19 @@ function App() {
     return valueTwo;
   };
 
+  function drawEquation(val){
+    setEquation(equation += val);  //doesn't account for when calcValue is set 
+  }
+
   return(
     <div className="container">
 
-      <CalcDisplay equation = {valueOne}></CalcDisplay>
+      <CalcDisplay equation={equation}></CalcDisplay>
 
-      <Operations handleOperation={handleOperation} setOperationType={setOperationType}></Operations>
+      <Operations handleOperation={handleOperation} setOperationType={setOperationType} drawEquation={drawEquation}></Operations>
 
       <div className='container'>
-        <Numpad setValueOne = {setValueOne} valueOne = {valueOne}/>
+        <Numpad setValueOne={setValueOne}  valueOne={valueOne} drawEquation={drawEquation}/>
         <CalcButton btnType={"operation"} content={"="} onclick={handleOperation}></CalcButton>
       </div>
 
