@@ -40,7 +40,11 @@ function App() {
   };
 
   function drawEquation(val){
-    setEquation(equation += val);  //doesn't account for when calcValue is set 
+    setEquation(equation += val);
+  }
+
+  function displayAnswer(){
+    setEquation(calcValue)
   }
 
   return(
@@ -52,7 +56,12 @@ function App() {
 
       <div className='container'>
         <Numpad setValueOne={setValueOne}  valueOne={valueOne} drawEquation={drawEquation}/>
-        <CalcButton btnType={"operation"} content={"="} onclick={handleOperation}></CalcButton>
+        <CalcButton btnType={"operation"} content={"="} 
+          onclick={function(){ 
+            handleOperation();
+            displayAnswer();
+          }}
+        ></CalcButton>
       </div>
 
     </div>

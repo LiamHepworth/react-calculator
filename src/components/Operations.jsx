@@ -33,8 +33,9 @@ const Operations = ({handleOperation, setOperationType, drawEquation}) => {
                         handleOperation();
                         setOperationType(ops.method);
                         drawEquation(` ${ops.op} `)
-                    }
-                }/>
+                        // drawEquation({op : ops.op})
+                    }}
+                />
             ))}
         </div>
      );
