@@ -1,0 +1,69 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+#root{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: lightgray;
+}
+
+.calculator{
+    width: 19.5rem;
+    height: 25rem;
+    background-color: var(--bs-dark-bg-subtle);
+    border: 2px solid black;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 0.75rem var(--bs-secondary-color));
+}
+
+#display-container{
+    height: 4rem;
+    background-color: var(--bs-secondary-color);
+    margin-bottom: 10px;
+}
+
+.display{
+    color: lightgrey;
+}
+
+.operation-buttons{
+    margin-top: 2rem;
+}
+
+/* .button-container{
+    height: 100%;
+} */
+
+.button{
+    margin: 5px;
+}
+
+/* #row-one{
+    height: 25%;
+    margin-bottom: 1rem;
+}
+#row-two{
+    height: 25%;
+    margin-bottom: 1rem;
+}
+#row-three{
+    height: 25%;
+    margin-bottom: 1rem;
+}
+#row-four{
+    height: 25%;
+    margin-bottom: 1rem;
+} */

@@ -27,16 +27,17 @@ const Operations = ({handleOperation, setOperationType, drawEquation}) => {
 
     return ( 
         <div className="container">
-            {ops.map((ops) => (
-                <CalcButton content={ops.op} key={ops.op} btnType={"operation"} 
-                    onclick={function(){ 
-                        handleOperation();
-                        setOperationType(ops.method);
-                        drawEquation(` ${ops.op} `)
-                        // drawEquation({op : ops.op})
-                    }}
-                />
-            ))}
+            <div className="row g-0 operation-buttons">
+                {ops.map((ops) => (
+                    <CalcButton content={ops.op} key={ops.op} btnType={"operation"}
+                        onclick={function(){ 
+                            handleOperation();
+                            setOperationType(ops.method);
+                            drawEquation(` ${ops.op} `)
+                        }}
+                    />
+                ))}
+            </div>
         </div>
      );
 }

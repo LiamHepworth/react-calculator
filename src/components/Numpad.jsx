@@ -15,9 +15,9 @@ const Numpad = ({setValueOne, valueOne, drawEquation}) => {
   }
 
   return (
-    <div className="container">
+    <div className="col-10 button-container">
 
-      <div id="row row-one">
+      <div id="row-one" className="row g-0">
         {numpadButtons[0].map((char) => (
           <CalcButton btnType={"input"}  key={char} content={char} 
           onclick={() => {
@@ -27,7 +27,7 @@ const Numpad = ({setValueOne, valueOne, drawEquation}) => {
         ))}
       </div>
 
-      <div id="row row-two">
+      <div id="row-two" className="row g-0">
         {numpadButtons[1].map((char) => (
           <CalcButton btnType={"input"}  key={char} content={char} 
           onclick={() => {
@@ -37,7 +37,7 @@ const Numpad = ({setValueOne, valueOne, drawEquation}) => {
         ))}
       </div>
 
-      <div id="row row-three">
+      <div id="row-three" className="row g-0">
         {numpadButtons[2].map((char) => (
           <CalcButton btnType={"input"}  key={char} content={char} 
           onclick={() => {
@@ -47,7 +47,7 @@ const Numpad = ({setValueOne, valueOne, drawEquation}) => {
         ))}
       </div>
 
-      <div id="row row-four">
+      <div id="row-four" className="row g-0">
         <CalcButton btnType={"input"} key={"0"} content={"0"} 
         onclick={() => {
             handleClick(numpadButtons[3][0]) 

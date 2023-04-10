@@ -1,6 +1,6 @@
 const CalcButton = (props) => {
   return (
-    <button className="btn btn-secondary" value={props.btntype} onClick={props.onclick}>
+    <button className="button btn btn-primary col" type={"button"} value={props.btntype} onClick={props.onclick}>
       {props.content}
     </button>
   )

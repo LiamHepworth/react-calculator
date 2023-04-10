@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import './App.css'
 import Numpad from './components/Numpad'
 import Operations from './components/Operations'
 import CalcDisplay from './components/CalcDisplay'
@@ -20,7 +19,6 @@ function App() {
   };
 
   function handleOperation(){
-
     if(calcValue === ""){
       if(valueTwo === ""){
         setValueTwo(valueTwo = valueOne);
@@ -48,20 +46,22 @@ function App() {
   }
 
   return(
-    <div className="container">
+    <div className="card calculator">
 
       <CalcDisplay equation={equation}></CalcDisplay>
 
       <Operations handleOperation={handleOperation} setOperationType={setOperationType} drawEquation={drawEquation}></Operations>
 
-      <div className='container'>
-        <Numpad setValueOne={setValueOne}  valueOne={valueOne} drawEquation={drawEquation}/>
-        <CalcButton btnType={"operation"} content={"="} 
-          onclick={function(){ 
-            handleOperation();
-            displayAnswer();
-          }}
-        ></CalcButton>
+      <div className="container">
+        <div className="row g-0">
+          <Numpad setValueOne={setValueOne}  valueOne={valueOne} drawEquation={drawEquation}/>
+          <CalcButton btnType={"operation"} content={"="} 
+            onclick={function(){ 
+              handleOperation();
+              displayAnswer();
+            }}
+          ></CalcButton>
+        </div>
       </div>
 
     </div>
